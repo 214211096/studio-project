@@ -1,0 +1,28 @@
+{
+  "name": "studio-server",
+  "version": "1.0.0",
+  "description": "API לניהול תורים לסטודיו פילאטיס וספינינג",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch --env-file-if-exists=.env src/index.js",
+    "start": "node --env-file-if-exists=.env src/index.js",
+    "seed": "node --env-file-if-exists=.env scripts/seed.js",
+    "test-mail": "node --env-file-if-exists=.env scripts/test-mail.js",
+    "setup-mail": "node scripts/setup-mail.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.1",
+    "jsonwebtoken": "^9.0.3",
+    "luxon": "^3.7.2",
+    "mongodb-memory-server": "^11.3.0",
+    "mongoose": "^9.11.3",
+    "nodemailer": "10.0.16"
+  }
+}
