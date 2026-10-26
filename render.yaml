@@ -1,0 +1,34 @@
+services:
+  - type: web
+    name: studio-project
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: cd client && npm ci && npm run build && cd ../server && npm ci --omit=dev
+    startCommand: cd server && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: "22"
+      # לא להוריד את MongoDB המקומי - בענן משתמשים ב-Atlas
+      - key: MONGOMS_DISABLE_POSTINSTALL
+        value: "1"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MAIL_PROVIDER
+        value: smtp
+      - key: SMS_PROVIDER
+        value: console
+      - key: MONGO_URI
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: MAIL_FROM
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
